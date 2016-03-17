@@ -451,7 +451,6 @@ ${ layout.menubar(section='coordinators', is_editor=True, pullright=buttons) }
   <div class="modal-body">
       <h4>${ _('Submission Parameters') }</h4>
       <ul data-bind="foreach: coordinator.properties.parameters" class="unstyled">
-        <!-- ko if: ['oozie.use.system.libpath', 'start_date', 'end_date'].indexOf(name()) == -1 -->
         <li>
           <input data-bind="value: name"/>
           <input data-bind="value: value"/>
@@ -459,7 +458,6 @@ ${ layout.menubar(section='coordinators', is_editor=True, pullright=buttons) }
             <i class="fa fa-minus"></i>
           </a>
         </li>
-        <!-- /ko -->
       </ul>
       <a class="pointer" data-bind="click: function(){ $root.coordinator.properties.parameters.push(ko.mapping.fromJS({'name': '', 'value': ''})); }">
         <i class="fa fa-plus"></i> ${ _('Add parameter') }
