@@ -37,6 +37,8 @@ from spark.job_server_api import get_api as get_spark_api
 from spark.data_export import download as spark_download
 from desktop.lib.rest.http_client import RestException
 
+from spark.conf import get_yarn_default_queue
+
 
 LOG = logging.getLogger(__name__)
 
@@ -303,6 +305,9 @@ class SparkApi(Api):
     properties = dict([(p['name'], p['value']) for p in properties]) if properties is not None else {}
 
     properties['kind'] = lang
+
+    if not 'queue' in properties:
+      properties['queue'] = get_yarn_default_queue()
 
     api = get_spark_api(self.user)
 

@@ -88,6 +88,11 @@ START_LIVY_SERVER = Config(
   type=coerce_bool,
   private=True)
 
+LIVY_YARN_DEFAULT_QUEUE = Config(
+  key="livy_yarn_default_queue",
+  help=_t("Default queue when running on YARN"),
+  default="default")
+
 def get_livy_server_url():
   return 'http://%s:%s' % (LIVY_SERVER_HOST.get(), LIVY_SERVER_PORT.get())
 
@@ -104,6 +109,8 @@ def get_spark_status(user):
 
   return status
 
+def get_yarn_default_queue():
+  return LIVY_YARN_DEFAULT_QUEUE.get()
 
 def config_validator(user):
   res = []
