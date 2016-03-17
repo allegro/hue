@@ -803,7 +803,7 @@ from django.utils.translation import ugettext as _
             <p>${ _('There are currently no active sessions.') }</p>
             <!-- /ko -->
             <!-- ko foreach: sessions -->
-              <!-- ko if: ['pyspark', 'scala'].indexOf(type()) != -1 && typeof properties != 'undefined' -->
+              <!-- ko if: ['python', 'scala'].indexOf(type()) != -1 && typeof properties != 'undefined' -->
               <h4 data-bind="text: $root.getSnippetName(type())" style="clear:left;"></h4>
               <div style="display:block; width:100%;">
                 <!-- ko foreach: properties -->
