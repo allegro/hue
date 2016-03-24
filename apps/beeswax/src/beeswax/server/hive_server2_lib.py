@@ -556,7 +556,7 @@ class HiveServerClient:
 
     # Not supported currently in HS2 and Impala: TStatusCode.INVALID_HANDLE_STATUS
     if res.status.statusCode == TStatusCode.ERROR_STATUS and \
-        re.search('Invalid SessionHandle|Invalid session|Client session expired', res.status.errorMessage or '', re.I):
+        re.search('Invalid SessionHandle|Invalid session|Client session expired|MD5: IO error acquiring password', res.status.errorMessage or '', re.I):
       LOG.info('Retrying with a new session because for %s of %s' % (self.user, res))
 
       session = self.open_session(self.user)
