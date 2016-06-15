@@ -99,7 +99,8 @@ def get_metastore():
       _METASTORE_LOC_CACHE = {
           'use_sasl': use_sasl,
           'thrift_uri': thrift_uri,
-          'kerberos_principal': kerberos_principal
+          'kerberos_principal': kerberos_principal,
+          'all_thrift_uris': thrift_uris
       }
     else:
       LOG.error('Hue requires a remote metastore configuration')

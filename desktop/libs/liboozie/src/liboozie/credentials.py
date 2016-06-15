@@ -63,7 +63,7 @@ class Credentials(object):
     credentials[self.hive_name] = {
       'xml_name': self.hive_name,
       'properties': [
-         ('hcat.metastore.uri', hive_properties.get('thrift_uri')),
+         ('hcat.metastore.uri', hive_properties.get('all_thrift_uris')),
          ('hcat.metastore.principal', hive_properties.get('kerberos_principal')),
       ]
     }
